@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="script.aya.translate"
+       name="AYA Translate"
+       version="1.12.1"
+       provider-name="AYA Translate">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+
+  <!-- Manual mode: run from Add-ons > Program/Video add-ons, or map to a remote key -->
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>video executable</provides>
+  </extension>
+
+  <!-- Automatic mode: watches playback and newly downloaded subtitles -->
+  <extension point="xbmc.service" library="service.py"/>
+
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Translate downloaded subtitles and load them into the playing video</summary>
+    <description lang="en_GB">Finds the .srt you downloaded for the movie that is playing, translates it into your language with a free engine (Google Gemini free tier, Google Translate, Groq, OpenRouter, Ollama, DeepL Free or LibreTranslate) and loads it straight into the player. Sentences split across subtitles are translated as a whole so the meaning is kept. Automatically falls back to free Google Translate when a daily limit is used up, and caches every translation.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <website>https://randomfilip.github.io/aya-kodi-repo/</website>
+    <disclaimer lang="en_GB">Translations are made automatically by online translation services and can contain mistakes. The free translation services have their own terms and daily limits. Subtitles are downloaded by Kodi's own subtitle add-ons, not by AYA Translate.</disclaimer>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+    <news>1.12.1 - Fix: never uses a subtitle of another movie in the same folder; progress now visible during full-screen video
+1.12.0 - AYA log file (API keys hidden) with a "Show the AYA log" button: on the TV or on your phone to copy and send
+1.11.0 - Progress shown in the target language with a percent and seconds counter; clear error messages and where to fix them; "Test my setup" button
+1.10.0 - Translates subtitles that are already there when a movie starts (next to the video, Subs folders, Elementum downloads, your own folder); prefers full English subtitles
+1.9.0 - QR code now sends the key straight to Kodi: scan, paste the key on your phone, press Save
+Full history: CHANGELOG.md</news>
+  </extension>
+</addon>
+<addon id="repository.aya"
+       name="AYA Repository"
+       version="1.0.0"
+       provider-name="AYA Translate">
+  <requires>
+    <import addon="xbmc.addon" version="12.0.0"/>
+  </requires>
+  <extension point="xbmc.addon.repository" name="AYA Repository">
+    <!-- Kodi 17 Krypton / 18 Leia (Python 2). Kodi 19+ skip this block because of maxversion;
+         Kodi 17/18 ignore maxversion and use it because it has no minversion. -->
+    <dir maxversion="18.99.99">
+      <info compressed="false">https://randomfilip.github.io/aya-kodi-repo/kodi17-18/addons.xml</info>
+      <checksum>https://randomfilip.github.io/aya-kodi-repo/kodi17-18/addons.xml.md5</checksum>
+      <datadir zip="true">https://randomfilip.github.io/aya-kodi-repo/kodi17-18/</datadir>
+    </dir>
+    <!-- Kodi 19 Matrix and newer (Python 3): 19, 20, 21, 22... Kodi 17/18 skip it (minversion). -->
+    <dir minversion="19.0.0">
+      <info compressed="false">https://randomfilip.github.io/aya-kodi-repo/kodi19plus/addons.xml</info>
+      <checksum>https://randomfilip.github.io/aya-kodi-repo/kodi19plus/addons.xml.md5</checksum>
+      <datadir zip="true">https://randomfilip.github.io/aya-kodi-repo/kodi19plus/</datadir>
+    </dir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Install AYA Translate and get its updates automatically</summary>
+    <description lang="en_GB">The AYA Repository installs AYA Translate, a subtitle translator for Kodi, and keeps it up to date. It serves the right build for your Kodi: 17 and 18 (Python 2) or 19 and newer (Python 3).</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <website>https://randomfilip.github.io/aya-kodi-repo/</website>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
+</addons>
