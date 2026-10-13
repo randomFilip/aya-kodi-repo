@@ -2,7 +2,7 @@
 <addons>
 <addon id="script.aya.translate"
        name="AYA Translate"
-       version="1.12.2"
+       version="1.12.3"
        provider-name="AYA Translate">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
@@ -27,11 +27,11 @@
       <icon>icon.png</icon>
       <fanart>fanart.jpg</fanart>
     </assets>
-    <news>1.12.2 - Simpler engine names in the settings
+    <news>1.12.3 - Fix: movies played by Elementum: translates the English subtitle Elementum loads from the torrent; says when subtitles are inside the video
+1.12.2 - Simpler engine names in the settings
 1.12.1 - Fix: never uses a subtitle of another movie in the same folder; progress now visible during full-screen video
 1.12.0 - AYA log file (API keys hidden) with a "Show the AYA log" button: on the TV or on your phone to copy and send
 1.11.0 - Progress shown in the target language with a percent and seconds counter; clear error messages and where to fix them; "Test my setup" button
-1.10.0 - Translates subtitles that are already there when a movie starts (next to the video, Subs folders, Elementum downloads, your own folder); prefers full English subtitles
 Full history: CHANGELOG.md</news>
   </extension>
 </addon>
